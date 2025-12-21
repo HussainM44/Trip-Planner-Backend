@@ -1,27 +1,34 @@
 // Dependencies
-
 const dotenv = require("dotenv")
 dotenv.config()
 
 const express = require("express")
-
 const app = express()
 
-// Use Mongoose
+// Mongoose
 const mongoose = require("mongoose")
+mongoose.connect(process.env.MONGODB_URI)
 
-// mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on("connected", () => {
-  console.log(`connected to mongoDb database ${mongoose.connection.name}`)
+  console.log(`Connected to MongoDB: ${mongoose.connection.name}`)
 })
-
-module.exports = mongoose
 
 // Middleware
 const methodOverride = require("method-override")
 const morgan = require("morgan")
 
-// Use MiddleWare
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
+
+// Root Route
+app.get("/", (req, res) => {
+  res.send("hello")
+})
+
+// Server
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`)
+})
