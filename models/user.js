@@ -1,31 +1,32 @@
 const mongoose = require("mongoose")
 
-const attractionSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
+    username: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
     country: {
       type: String,
-      required: true,
-      trim: true,
     },
-
-    city: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-
-    picture: {
+    userImage: {
       type: String,
     },
-
-    description: {
-      type: String,
+    createdAt: {
+      type: Date,
     },
   },
   {
@@ -33,5 +34,5 @@ const attractionSchema = new mongoose.Schema(
   }
 )
 
-const Attraction = mongoose.model("Attraction", attractionSchema)
-module.exports = Attraction
+const User = mongoose.model("User", userSchema)
+module.exports = User

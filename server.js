@@ -27,6 +27,8 @@ app.get("/", (req, res) => {
   res.send("hello")
 })
 
+// Req Router
+
 // Server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
