@@ -27,6 +27,10 @@ const attractionSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    attractionId: {
+      type: Number,
+      unique: true,
+    },
   },
   {
     timestamps: true,
