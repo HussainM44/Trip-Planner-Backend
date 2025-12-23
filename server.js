@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
+app.use("/trips", require("./routes/trip"))
 
 // Root Route
 app.get("/", (req, res) => {
