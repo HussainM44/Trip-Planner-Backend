@@ -30,6 +30,10 @@ const attractionSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    attractionId: {
+      type: Number,
+      unique: true,
+    },
   },
   { timestamps: true }
 )
