@@ -1,5 +1,5 @@
 const Attraction = require("../models/attraction")
-const attractionJSON = require("../attractionJSON")
+// const attractionJSON = require("../attractionJSON")
 
 // Functions
 const getAttractions = async (req, res) => {
