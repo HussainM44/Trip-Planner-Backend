@@ -27,6 +27,14 @@ app.get("/", (req, res) => {
   res.send("hello")
 })
 
+// Req Router
+const attractionRouter = require("./routes/attraction")
+
+
+// Use Router
+app.use("/attraction", attractionRouter)
+
+
 // Server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
