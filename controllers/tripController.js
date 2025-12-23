@@ -22,19 +22,21 @@ const trip_create_post = async (req, res) => {
     endDate: req.body.endDate,
   })
 
-  res.status(201).json(trip) 
+  res.json(trip)
 }
+
 
 // GET single trip by ID
 const trip_show_get = async (req, res) => {
   const trip = await Trip.findById(req.params.tripId).populate("user")
 
   if (!trip) {
-    return res.status(404).json({ message: "Trip not found" })
+    return res.json({ message: "Trip not found" })
   }
 
   res.json(trip)
 }
+
 
 // GET edit trip
 const trip_edit_get = async (req, res) => {
