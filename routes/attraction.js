@@ -5,9 +5,9 @@ const attractionCont = require("../controllers/attractionCont")
 
 // Routes
 
-router.get("/countries", attractionCont.getAttractions)
+router.get("/", attractionCont.getAttractions)
 
-router.get("/countries/:id",attractionCont.getSingleAttraction)
+router.get("/:id",attractionCont.getSingleAttraction)
 
 // Exports
 module.exports = router
