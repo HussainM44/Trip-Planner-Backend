@@ -5,6 +5,7 @@ const tripPlanCont = require("../controllers/tripPlanCont")
 
 // Routes
 
+router.get("/",tripPlanCont.getAllPlans)
 
 
 
