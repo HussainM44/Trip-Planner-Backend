@@ -4,17 +4,26 @@ const Attraction = require("../models/attraction")
 // Functions
 
 // GET All Attraction
-const getAttractions = async(req,res)=>{
- const allAttraction = await Attraction.find()
-
-  return res.send({allAttraction})
+const getAttractions = async(req, res) => {
+  try {
+    const allAttraction = await Attraction.find()
+    return res.status(400).send(allAttraction)
+  } catch (error) {
+    throw error
+  }
 }
 
 // Get one Attraction
-const getSingleAttraction = async(req,res)=>{
-  const attractionById = await Attraction.findById(req.params.id)
-
-  return res.send({attractionById})
+const getSingleAttraction = async(req, res) => {
+  try {
+    const attractionById = await Attraction.findOne({ attractionId: Number(req.params.id) })
+    if (!attractionById) {
+      return res.status(400).send({ status: 'Error', msg: 'Attraction not found' })
+    }
+    return res.status(400).send(attractionById)
+  } catch (error) {
+    throw error
+  }
 }
 
 
