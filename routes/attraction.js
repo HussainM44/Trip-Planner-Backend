@@ -9,8 +9,5 @@ router.get("/countries", attractionCont.getAttractions)
 
 // router.post("/countries",attraction)
 
-
-
-
 // Exports
 module.exports = router
