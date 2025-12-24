@@ -7,7 +7,7 @@ const attractionCont = require("../controllers/attractionCont")
 
 router.get("/", attractionCont.getAttractions)
 
-router.get("/:id",attractionCont.getSingleAttraction)
+router.get("/:id", attractionCont.getSingleAttraction)
 
 // Exports
 module.exports = router
