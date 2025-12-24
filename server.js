@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
-app.use("/trips", require("./routes/trip"))
 
 // Root Route
 app.get("/", (req, res) => {
@@ -30,10 +29,13 @@ app.get("/", (req, res) => {
 
 // Req Router
 const attractionRouter = require("./routes/attraction")
+const tripRouter = require("./routes/trip")
+const commentRouter = require("./routes/comment")
 
 
 // Use Router
 app.use("/attraction", attractionRouter)
+app.use("/trip", tripRouter, commentRouter)
 
 
 // Server
