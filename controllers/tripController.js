@@ -1,4 +1,3 @@
-
 const Trip = require("../models/trip")
 
 // GET all trips
