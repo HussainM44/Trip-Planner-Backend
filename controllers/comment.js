@@ -37,8 +37,18 @@ const comment_delete_delete = async (req,res) => {
   res.json(commentId)
 }
 
+const comment_index_get = async (req,res) => {
+  const tripId = req.params.tripId
+
+  const comments = await Comment.find({trip: tripId}).sort({createdAt: -1})
+
+  res.json(comments)
+}
+
+
 module.exports = {
   comment_create_post,
   comment_update_put,
   comment_delete_delete,
+  comment_index_get,
 }

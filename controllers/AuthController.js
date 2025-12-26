@@ -1,4 +1,4 @@
-const { user } = require('../models')
+const { user } = require('../models/user')
 const middleware = require('../middleware')
 
 const Register = async (req, res) => {
@@ -40,7 +40,13 @@ const Login = async (req, res) => {
     }
 }
 
+const CheckSession = async (req, res) => {
+  const { payload } = res.locals
+  res.status(200).send(payload)
+}
+
 module.exports = {
   Register,
-  Login
+  Login,
+  CheckSession,
 }
