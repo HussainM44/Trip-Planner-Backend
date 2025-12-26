@@ -1,14 +1,14 @@
 const Comment = require('../models/comment')
 
 const comment_create_post = async (req, res) => {
-  const loggedInUser = req.body.user
+  const loggedInUser = res.locals.payload.id
   const tripId = req.params.tripId
 
   const comment = await Comment.create({
     user: loggedInUser,
     trip: tripId,
     feedback: req.body.feedback,
-    rating: Number(req.body.rating)
+    rating: Number(req.body.rating),
   })
 
   res.json(comment)
@@ -17,7 +17,7 @@ const comment_create_post = async (req, res) => {
 const comment_update_put = async (req, res) => {
   const commentId = req.params.commentId
 
-  await Comment.findByIdAndUpdate(
+  const updatedComment = await Comment.findByIdAndUpdate(
     commentId,
     {
     feedback: req.body.feedback,
@@ -25,7 +25,7 @@ const comment_update_put = async (req, res) => {
     },
     {new:true}
   )
-  res.json(commentId)
+  res.json(updatedComment)
 }
 
 const comment_delete_delete = async (req,res) => {
