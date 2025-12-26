@@ -30,8 +30,16 @@ const comment_update_put = async (req, res) => {
   res.json(commentId)
 }
 
+const comment_delete_delete = async (req,res) => {
+  const commentId = req.body.commentId
+
+  await Comment.findByIdAndDelete(commentId)
+
+  res.json(commentId)
+}
 
 module.exports = {
   comment_create_post,
   comment_update_put,
+  comment_delete_delete,
 }
