@@ -2,15 +2,12 @@ const router = require("express").Router()
 
 const attractionCont = require("../controllers/attractionCont")
 
-// const attractionJSON= require("../attractionJSON")
+
 // Routes
 
-router.get("/countries", attractionCont.getAttractions)
+router.get("/", attractionCont.getAttractions)
 
-// router.post("/countries",attraction)
-
-
-
+router.get("/:id", attractionCont.getSingleAttraction)
 
 // Exports
 module.exports = router

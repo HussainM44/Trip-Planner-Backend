@@ -1,19 +1,34 @@
 const Attraction = require("../models/attraction")
-// const attractionJSON = require("../attractionJSON")
+
 
 // Functions
-const getAttractions = async (req, res) => {
-  const countries = attractionJSON.map((e) => ({
-    country: e.country,
-    imgLink: e.imgLink,
-    cities: e.cities,
-  }))
 
-
-  return res.send({ countries })
+// GET All Attraction
+const getAttractions = async(req, res) => {
+  try {
+    const allAttraction = await Attraction.find()
+    return res.status(400).send(allAttraction)
+  } catch (error) {
+    throw error
+  }
 }
+
+// Get one Attraction
+const getSingleAttraction = async(req, res) => {
+  try {
+    const attractionById = await Attraction.findOne({ attractionId: Number(req.params.id) })
+    if (!attractionById) {
+      return res.status(400).send({ status: 'Error', msg: 'Attraction not found' })
+    }
+    return res.status(400).send(attractionById)
+  } catch (error) {
+    throw error
+  }
+}
+
 
 // Exports
 module.exports = {
   getAttractions,
+  getSingleAttraction
 }
