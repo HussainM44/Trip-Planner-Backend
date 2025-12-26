@@ -5,5 +5,6 @@ router.post("/:tripId/comment", commentCtrl.comment_create_post)
 router.put("/:tripId/comment/:commentId", commentCtrl.comment_update_put)
 router.delete("/:tripId/comment", commentCtrl.comment_delete_delete)
 router.get("/:tripId/comment", commentCtrl.comment_index_get)
+router.get("/tripId/comment/:commentId", commentCtrl.comment_update_get)
 
 module.exports = router

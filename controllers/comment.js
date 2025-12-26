@@ -1,5 +1,4 @@
 const Comment = require('../models/comment')
-const User = require('../models/user')
 
 const comment_create_post = async (req, res) => {
   const loggedInUser = req.body.user
@@ -16,7 +15,7 @@ const comment_create_post = async (req, res) => {
 }
 
 const comment_update_put = async (req, res) => {
-  const commentId = req.body.commentId
+  const commentId = req.params.commentId
 
   await Comment.findByIdAndUpdate(
     commentId,
@@ -30,7 +29,7 @@ const comment_update_put = async (req, res) => {
 }
 
 const comment_delete_delete = async (req,res) => {
-  const commentId = req.body.commentId
+  const commentId = req.params.commentId
 
   await Comment.findByIdAndDelete(commentId)
 
@@ -45,10 +44,19 @@ const comment_index_get = async (req,res) => {
   res.json(comments)
 }
 
+const comment_update_get = async (req,res) => {
+  const commentId = req.params.commentId
+
+  const comment = await Comment.findById(commentId)
+
+  res.json(comment)
+}
+
 
 module.exports = {
   comment_create_post,
   comment_update_put,
   comment_delete_delete,
   comment_index_get,
+  comment_update_get,
 }
