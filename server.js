@@ -29,13 +29,15 @@ app.get("/", (req, res) => {
 
 // Req Router
 const attractionRouter = require("./routes/attraction")
-const tripPLanRouter = require("./routes/tripPlan")
 const tripRouter = require("./routes/trip")
 const commentRouter = require("./routes/comment")
+const tripPLanRouter = require("./routes/tripPlan")
 
 
 // Use Router
 app.use("/attraction", attractionRouter)
+app.use("/trip", tripRouter, commentRouter)
+app.use("/plan",tripPLanRouter)
 
 
 // Server

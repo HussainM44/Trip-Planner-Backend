@@ -16,6 +16,22 @@ const comment_create_post = async (req, res) => {
   res.json(comment)
 }
 
+const comment_update_put = async (req, res) => {
+  const commentId = req.body.commentId
+
+  await Comment.findByIdAndUpdate(
+    commentId,
+    {
+    feedback: req.body.feedback,
+    rating: req.body.rating,
+    },
+    {new:true}
+  )
+  res.json(commentId)
+}
+
+
 module.exports = {
   comment_create_post,
+  comment_update_put,
 }
