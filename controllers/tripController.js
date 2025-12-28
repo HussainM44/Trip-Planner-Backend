@@ -54,7 +54,7 @@ const trip_update_put = async (req, res) => {
       startDate: req.body.startDate,
       endDate: req.body.endDate,
     },
-    { new: true } //whats this
+    { new: true } 
   )
 
   res.json(trip)
