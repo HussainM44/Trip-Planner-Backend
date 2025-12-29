@@ -4,6 +4,7 @@ dotenv.config()
 
 const express = require("express")
 const app = express()
+const cors = require('cors')
 
 // Mongoose
 const mongoose = require("mongoose")
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride("_method"))
 app.use(morgan("dev"))
+app.use(cors())
 
 // Root Route
 app.get("/", (req, res) => {
