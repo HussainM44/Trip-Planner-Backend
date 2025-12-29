@@ -83,7 +83,7 @@
     "country": "USA",
     "city": "New York",
     "name": "Times Square",
-    "picture": "https://images.unsplash.com/photo-1560847601-2056e8eddfb4?w=600",
+    "picture": "https://images.unsplash.com/photo-1582760548598-0bccdf815aa2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "Bright lights and bustling energy in Midtown.",
     "attractionId": 11
   },
@@ -163,7 +163,7 @@
     "country": "UK",
     "city": "London",
     "name": "Big Ben",
-    "picture": "https://images.unsplash.com/photo-1529665730773-74f6c78ca2b6?w=600",
+    "picture": "https://plus.unsplash.com/premium_photo-1661922394754-5d8d05a448cf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "Iconic clock tower at the Palace of Westminster.",
     "attractionId": 21
   },
@@ -179,7 +179,7 @@
     "country": "UK",
     "city": "London",
     "name": "British Museum",
-    "picture": "https://images.unsplash.com/photo-1570708734726-4f2c072d69c9?w=600",
+    "picture": "https://images.unsplash.com/photo-1470215883992-c49406afc34f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "World-famous museum of human history and culture.",
     "attractionId": 23
   },
@@ -187,7 +187,7 @@
     "country": "UK",
     "city": "London",
     "name": "Buckingham Palace",
-    "picture": "https://images.unsplash.com/photo-1470295413912-3885e1f42323?w=600",
+    "picture": "https://plus.unsplash.com/premium_photo-1694475328725-64b77c08b4b9?q=80&w=2077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "Official residence of the British monarch.",
     "attractionId": 24
   },
@@ -243,7 +243,7 @@
     "country": "Australia",
     "city": "Sydney",
     "name": "Bondi Beach",
-    "picture": "https://images.unsplash.com/photo-1506291318943-295d3a08c5b3?w=600",
+    "picture": "https://images.unsplash.com/photo-1555029941-a475f4e50810?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "Famous beach known for surfing and coastal walks.",
     "attractionId": 31
   },
@@ -251,7 +251,7 @@
     "country": "Australia",
     "city": "Sydney",
     "name": "Darling Harbour",
-    "picture": "https://images.unsplash.com/photo-1557890577-29f30c496f6e?w=600",
+    "picture": "https://images.unsplash.com/photo-1556763947-80fd07e395ad?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "Waterfront destination with dining and entertainment.",
     "attractionId": 32
   }
