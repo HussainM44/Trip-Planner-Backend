@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Attraction = require("../models/attraction");
 
 // ✅ make sure this file is INSIDE your backend folder (same level as server.js in your screenshot)
-const data = require("../attractions_with_serial_ids.json");
+const data = require("../attractions.json");
 
 async function run() {
   try {
@@ -57,4 +57,4 @@ async function run() {
 run();
 
 
-// Script is made by AI. 
+// Script is made by AI.
