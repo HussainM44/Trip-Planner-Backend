@@ -3,12 +3,12 @@ const Trip = require("../models/trip")
 // GET all trips
 const trip_get = async (req, res) => {
   const trips = await Trip.find().populate("user")
-  res.json(trips)
+  res.send(trips)
 }
 
 // GET create trip form or placeholder
 const trip_create_get = (req, res) => {
-  res.json({ message: "Create Trip" })
+  res.send({ message: "Create Trip" })
 }
 
 // POST create trip
@@ -21,26 +21,24 @@ const trip_create_post = async (req, res) => {
     endDate: req.body.endDate,
   })
 
-  res.json(trip)
+  res.send(trip)
 }
-
 
 // GET single trip by ID
 const trip_show_get = async (req, res) => {
   const trip = await Trip.findById(req.params.tripId).populate("user")
 
   if (!trip) {
-    return res.json({ message: "Trip not found" })
+    return res.send({ message: "Trip not found" })
   }
 
-  res.json(trip)
+  res.send(trip)
 }
-
 
 // GET edit trip
 const trip_edit_get = async (req, res) => {
   const trip = await Trip.findById(req.params.tripId)
-  res.json(trip)
+  res.send(trip)
 }
 
 // PUT update trip
@@ -53,16 +51,16 @@ const trip_update_put = async (req, res) => {
       startDate: req.body.startDate,
       endDate: req.body.endDate,
     },
-    { new: true } 
+    { new: true }
   )
 
-  res.json(trip)
+  res.send(trip)
 }
 
-//  deleting the trip
+// deleting the trip
 const trip_delete_delete = async (req, res) => {
   await Trip.findByIdAndDelete(req.params.tripId)
-  res.json({ message: "Trip has been deleted" })
+  res.send({ message: "Trip has been deleted" })
 }
 
 module.exports = {
@@ -74,4 +72,3 @@ module.exports = {
   trip_update_put,
   trip_delete_delete,
 }
-
