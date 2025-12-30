@@ -1,10 +1,22 @@
-
-# Attracto Backend 🌍✈️
+# Trip Planner Backend 🌍✈️
 
 This repository contains the **backend API** for the Trip Planner application.  
-It is responsible for managing tourist destinations, attraction points, and trip plans, allowing users to build and manage customized travel itineraries.
+It handles all server-side logic, database operations, and RESTful APIs required for building and managing travel plans.
 
 The backend is built using **Node.js, Express, and MongoDB**, following a **modular and scalable architecture**.
+
+---
+
+## 🔗 Frontend Repository
+
+The frontend for this project is developed separately and can be found here:
+
+👉 https://github.com/manarkhalil9/mini-travel-planner
+
+The frontend consumes this backend’s APIs to:
+- Display countries, cities, and attractions
+- Allow users to create and manage trip plans
+- Interact with trip and attraction data dynamically
 
 ---
 
@@ -12,107 +24,94 @@ The backend is built using **Node.js, Express, and MongoDB**, following a **modu
 
 The Trip Planner Backend serves as the core data and logic layer for a travel planning platform where users can:
 
-- Browse tourist attractions by country and city
-- Add attraction points to their personal trip plans
-- Create, view, update, and delete trip plans
-- Retrieve structured travel data efficiently through REST APIs
+- Explore tourist destinations across different countries and cities
+- View attraction points with detailed information
+- Add attraction points to a personalized trip plan
+- Create, update, view, and delete trip plans
 
-This backend is designed to be easily connected to a frontend web or mobile application.
+This backend is designed to seamlessly integrate with a web-based frontend application.
 
 ---
 
 ## 🚀 Key Functionalities
 
 ### 🗺️ Attractions Management
-- Stores tourist attractions with details such as:
-  - Name
-  - Location (country / city)
-  - Description
-  - Category or type
-- Provides API endpoints to:
-  - Fetch all attractions
-  - Fetch attractions by location
-  - Fetch a single attraction by ID
+- Stores tourist attraction data including:
+  - Attraction name
+  - Country and city
+  - Description and category
+- Provides APIs to:
+  - Retrieve all attractions
+  - Filter attractions by location
+  - Retrieve a specific attraction by ID
 
 ### 🧳 Trip Planning
-- Allows users to create trip plans
-- Users can:
-  - Add multiple attractions to a trip
-  - Remove attractions from a trip
-  - Update trip details
-- Supports full **CRUD operations** for trip plans
+- Enables users to create trip plans
+- Supports adding and removing attraction points
+- Allows updating and deleting trip plans
+- Full CRUD functionality for trip-related data
 
 ### 🔄 RESTful API Design
-- Follows REST standards using:
-  - `GET` for fetching data
-  - `POST` for creating data
-  - `PUT / PATCH` for updating data
-  - `DELETE` for removing data
-- Clean and predictable API routes
+- Follows REST standards
+- Uses proper HTTP methods:
+  - `GET` – Fetch data
+  - `POST` – Create new data
+  - `PUT / PATCH` – Update existing data
+  - `DELETE` – Remove data
 
 ---
 
 ## 🧱 Project Architecture
 
-The backend follows a **separation of concerns** approach:
+The backend follows a **clean separation of concerns**:
 
 ### 📂 Controllers
-- Handle application logic
-- Process requests and send responses
-- Keep route files clean and readable
+- Handle business logic
+- Process incoming requests and generate responses
 
 ### 📂 Routes
 - Define API endpoints
-- Map HTTP methods to controller functions
+- Connect routes to controller logic
 
 ### 📂 Models
 - Define MongoDB schemas using Mongoose
-- Ensure consistent data structure and validation
+- Enforce data structure and validation
 
 ### 📂 Middleware
-- Handle reusable logic such as:
-  - Error handling
-  - Request validation
-  - Authentication (if extended later)
+- Centralized error handling
+- Request validation
+- Easily extendable for authentication
 
 ### 📂 Scripts
-- Utility scripts for database operations or data seeding
+- Utility scripts for seeding or managing data
 
 ---
 
 ## 🗄️ Database
 
-- Uses **MongoDB** as the primary database
-- **Mongoose** is used for:
-  - Schema modeling
+- **MongoDB** is used as the primary database
+- **Mongoose** provides:
+  - Schema-based modeling
   - Data validation
-  - Query abstraction
-- JSON data (e.g., attractions data) can be used for seeding the database
+  - Query handling
+- JSON files can be used for initial data population (e.g., attractions)
 
 ---
 
 ## ⚙️ Technologies Used
 
-- **Node.js** – JavaScript runtime
-- **Express.js** – Web framework
-- **MongoDB** – NoSQL database
-- **Mongoose** – ODM for MongoDB
-- **Nodemon** – Development auto-reload
-- **dotenv** – Environment variable management
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **Mongoose**
+- **Nodemon**
+- **dotenv**
 
 ---
 
-## 🌟 Specialties of This Repository
+## 🧪 Development & Integration
 
-✔ Modular and scalable folder structure  
-✔ Clean separation between routes, controllers, and models  
-✔ Easy to extend with authentication and user management  
-✔ Frontend-agnostic (works with React, Flutter, etc.)  
-✔ Designed for real-world travel planning use cases  
-
----
-
-## 🧪 Development Experience
-
-- Simple setup and run process
-- Easy to test APIs using Postman or Insomnia
+- Backend runs independently of the frontend
+- APIs can be tested using Postman or Insomnia
+- Frontend communicates with backend via HTTP requests
+- Suitable for full-stack integration
