@@ -10,8 +10,8 @@ const comment_create_post = async (req, res) => {
     feedback: req.body.feedback,
     rating: Number(req.body.rating),
   })
-
-  res.json(comment)
+  const populatedComment =await comment.populate("user","name")
+  res.json(populatedComment)
 }
 
 const comment_update_put = async (req, res) => {
@@ -39,7 +39,7 @@ const comment_delete_delete = async (req,res) => {
 const comment_index_get = async (req,res) => {
   const tripId = req.params.tripId
 
-  const comments = await Comment.find({trip: tripId}).sort({createdAt: -1})
+  const comments = await Comment.find({trip: tripId}).populate("user","name").sort({createdAt: -1})
 
   res.json(comments)
 }
