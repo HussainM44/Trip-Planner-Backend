@@ -1,11 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
 const tripPlanSchema = new mongoose.Schema(
   {
     trip: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Trip",
-      required: true,
     },
 
     attraction: {
@@ -27,7 +26,7 @@ const tripPlanSchema = new mongoose.Schema(
   {
     timestamps: true,
   }
-);
+)
 
 const TripPlan = mongoose.model("TripPlan", tripPlanSchema)
 module.exports = TripPlan
