@@ -20,6 +20,12 @@ The frontend consumes this backend’s APIs to:
 
 ---
 
+## 🚀 Live Deployment
+
+🔗 https://attractohub.onrender.com
+
+---
+
 ## 📌 Purpose of the Project
 
 The Trip Planner Backend serves as the core data and logic layer for a travel planning platform where users can:
