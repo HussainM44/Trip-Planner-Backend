@@ -28,6 +28,29 @@ const comment_update_put = async (req, res) => {
   res.json(updatedComment)
 }
 
+const comment_delete_delete = async (req,res) => {
+  const commentId = req.params.commentId
+
+  await Comment.findByIdAndDelete(commentId)
+
+  res.json(commentId)
+}
+
+const comment_index_get = async (req,res) => {
+  const tripId = req.params.tripId
+
+  const comments = await Comment.find({trip: tripId}).populate("user","name").sort({createdAt: -1})
+
+  res.json(comments)
+}
+
+const comment_update_get = async (req,res) => {
+  const commentId = req.params.commentId
+
+  const comment = await Comment.findById(commentId)
+
+  res.json(comment)
+}
 
 
 module.exports = {
