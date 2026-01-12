@@ -17,9 +17,10 @@ app.use(methodOverride("_method"))
 app.use(morgan("dev"))
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log(`Connected to MongoDB: ${mongoose.connection.name}`))
-  .catch(err => {
+  .catch((err) => {
     console.error("MongoDB connection error:", err)
     process.exit(1) // stop server if DB fails
   })
@@ -34,7 +35,7 @@ const tripPlanRouter = require("./routes/tripPlan")
 app.use("/auth", authRouter)
 app.use("/attraction", attractionRouter)
 app.use("/trip", tripRouter)
-app.use("/comment", commentRouter)
+app.use("/trip", commentRouter) // ✅ FIX: comment routes now match /trip/:tripId/comment
 app.use("/plan", tripPlanRouter)
 
 // Root Route

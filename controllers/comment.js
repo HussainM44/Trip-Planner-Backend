@@ -1,6 +1,10 @@
 const Comment = require('../models/comment')
 
+
+
+//This function runs when your frontend sends a POST request to create a comment.
 const comment_create_post = async (req, res) => {
+  //That middleware decoded the token and stored the user info
   const loggedInUser = res.locals.payload.id
   const tripId = req.params.tripId
 
@@ -10,10 +14,14 @@ const comment_create_post = async (req, res) => {
     feedback: req.body.feedback,
     rating: Number(req.body.rating),
   })
+
+  // You changed the populate part so that when you create (or fetch) comments, the response includes the user’s name instead of only the user ID.
   const populatedComment =await comment.populate("user","name")
   res.json(populatedComment)
 }
 
+
+// This code is for updating an existing comment (editing a comment and saving it).
 const comment_update_put = async (req, res) => {
   const commentId = req.params.commentId
 
@@ -28,6 +36,8 @@ const comment_update_put = async (req, res) => {
   res.json(updatedComment)
 }
 
+
+
 const comment_delete_delete = async (req,res) => {
   const commentId = req.params.commentId
 
@@ -36,14 +46,20 @@ const comment_delete_delete = async (req,res) => {
   res.json(commentId)
 }
 
+
+// Find all comments that belong to this trip → include commenter’s name → sort newest first → return them.
 const comment_index_get = async (req,res) => {
   const tripId = req.params.tripId
 
-  const comments = await Comment.find({trip: tripId}).populate("user","name").sort({createdAt: -1})
+   // “Give me all comments where the trip field equals this tripId” Comment.find({ trip: tripId }) So you only get comments for that trip, not all comments in the database.
+  const comments = await Comment.find({trip: tripId}).
+  populate("user","name").sort({createdAt: -1})
 
   res.json(comments)
 }
 
+
+//The point of this code is to fetch one specific comment so the app can show it or edit it.
 const comment_update_get = async (req,res) => {
   const commentId = req.params.commentId
 
