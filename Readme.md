@@ -22,7 +22,7 @@ The frontend consumes this backend’s APIs to:
 
 ## 🚀 Live Deployment
 
-🔗 https://attractohub.onrender.com
+🔗 https://trip-planner-xs7e.onrender.com
 
 ---
 
