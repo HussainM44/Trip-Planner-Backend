@@ -1,13 +1,31 @@
 const router = require("express").Router()
 const tripPlanCont = require("../controllers/tripPlanCont")
+const middleware = require("../middleware/index")
 
-// Routes
 router.get("/", tripPlanCont.getAllPlans)
-router.get('/:id', tripPlanCont.getSinglePlan)
-router.post('/', tripPlanCont.createPlan)
-router.put('/:id', tripPlanCont.updatePlan)
-router.delete('/:id', tripPlanCont.deletePlan)
+router.get("/:id", tripPlanCont.getSinglePlan)
 
 
-// Export
+router.put(
+  "/:id",
+  middleware.stripToken,
+  middleware.verifyToken,
+  tripPlanCont.updatePlan
+)
+
+
+router.post(
+  "/",
+  middleware.stripToken,
+  middleware.verifyToken,
+  tripPlanCont.createPlan
+)
+
+router.delete(
+  "/:id",
+  middleware.stripToken,
+  middleware.verifyToken,
+  tripPlanCont.deletePlan
+)
+
 module.exports = router

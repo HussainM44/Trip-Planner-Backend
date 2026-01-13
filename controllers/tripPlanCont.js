@@ -6,12 +6,13 @@ const Attraction = require("../models/attraction")
 // Getting All plans
 const getAllPlans = async (req, res) => {
   try {
-    const allPlans = await TripPlan.find()
-      .populate("trip")
+    const plans = await TripPlan.find()
       .populate("attraction")
-    return res.status(200).send(allPlans)
+      .sort({ createdAt: -1 })
+
+    return res.status(200).json(plans)
   } catch (error) {
-    throw error
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -35,27 +36,43 @@ const getSinglePlan = async (req, res) => {
 //create trip plan
 const createPlan = async (req, res) => {
   try {
-    const { attraction: attractionId, day, notes, trip } = req.body;
+    const plan = await TripPlan.create({
+      attraction: req.body.attraction,
+      day: req.body.day,
+      notes: req.body.notes,
 
-    const attraction = await Attraction.findById(attractionId);
-    if (!attraction) {
-      return res.status(404).send({ message: "Attraction not found" });
+      // ✅ CORRECT USER SOURCE
+      user: res.locals.payload.id,
+    })
+
+    return res.status(201).json(plan)
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const deletePlan = async (req, res) => {
+  try {
+    const plan = await TripPlan.findById(req.params.id)
+
+    if (!plan) {
+      return res.status(404).json({ msg: "Trip plan not found" })
     }
 
-    const newPlan = await TripPlan.create({
-      attraction: attraction._id,
-      day,
-      notes,
-      trip,
-    });
+    // ✅ OWNERSHIP CHECK (CORRECT)
+    if (plan.user.toString() !== res.locals.payload.id) {
+      return res
+        .status(403)
+        .json({ msg: "You are not allowed to delete this trip plan" })
+    }
 
-    return res.status(201).send(newPlan);
+    await plan.deleteOne()
+
+    return res.status(200).json({ msg: "Trip plan deleted" })
   } catch (error) {
-    console.error(error);
-    return res.status(500).send({ message: "Error creating plan", error });
+    return res.status(500).json({ error: error.message })
   }
-};
-
+}
 
 //update trip plan
 const updatePlan = async (req, res) => {
@@ -68,21 +85,6 @@ const updatePlan = async (req, res) => {
       }
     )
     res.status(200).send(updatedPlan)
-  } catch (error) {
-    throw error
-  }
-}
-
-//delete trip plan
-const deletePlan = async (req, res) => {
-  try {
-    const deletedPlan = await TripPlan.findByIdAndDelete(req.params.id)
-    if (!deletedPlan) {
-      return res
-        .status(400)
-        .send({ status: "error", msg: "Trip plan not found" })
-    }
-    return res.status(200).json({ status: "Success", msg: "TripPlan deleted" })
   } catch (error) {
     throw error
   }

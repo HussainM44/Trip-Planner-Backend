@@ -1,7 +1,7 @@
 {
   "name": "trip_planner",
   "version": "1.0.0",
-  "description": "",
+  "description": "This repository contains the **backend API** for the Trip Planner application.  \r It handles all server-side logic, database operations, and RESTful APIs required for building and managing travel plans.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -20,5 +20,14 @@
     "mongoose": "^9.0.2",
     "morgan": "^1.10.1",
     "multer": "^2.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HussainM44/Trip-Planner-Backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HussainM44/Trip-Planner-Backend/issues"
+  },
+  "homepage": "https://github.com/HussainM44/Trip-Planner-Backend#readme"
 }

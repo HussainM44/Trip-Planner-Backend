@@ -1,3 +1,5 @@
+
+
 const Trip = require("../models/trip")
 
 // GET all trips
@@ -6,12 +8,18 @@ const trip_get = async (req, res) => {
   res.json(trips)
 }
 
-// GET create trip form or placeholder
+
+
+
+
+// GET create trip
 const trip_create_get = (req, res) => {
   res.json({ message: "Create Trip" })
 }
 
-// POST create trip
+
+
+// POST It creates a new trip
 const trip_create_post = async (req, res) => {
   const trip = await Trip.create({
     user: req.body.user,
@@ -43,7 +51,7 @@ const trip_edit_get = async (req, res) => {
   res.json(trip)
 }
 
-// PUT update trip
+// PUT update(save changes) trip
 const trip_update_put = async (req, res) => {
   const trip = await Trip.findByIdAndUpdate(
     req.params.tripId,
